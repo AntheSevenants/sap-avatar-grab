@@ -8,6 +8,12 @@
 <body>
 	<h1>SAP avatar grab test case</h1>
 	<p>This test case has an SAP-like structure, so it should cover real SAP page behaviour.</p>
-	<span class="sapFAvatarImageHolder sapFAvatarImageCover" style="background-image: url('test.jpg');"></span>
+	<span class="sapFAvatarImageHolder sapFAvatarImageCover" style="background-image: url('./test.jpg');"></span>
+
+	<script>
+		let avatarImageHolder = document.querySelector(".sapFAvatarImageHolder.sapFAvatarImageCover");
+		let found = /url\(['"]?(.*?)['"]?\);?/g.exec(avatarImageHolder.style.backgroundImage);
+		window.open(found[1], '_blank').focus();
+	</script>
 </body>
 </html>
